@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>번역기들</title>
+        <link rel="stylesheet" href="css/translator.css">
+    </head>
+    <body>
+        <header>
+            <h1>번역기들</h1>
+        </header>
+            <div class="container">
+                <!-- input box -->
+                <div class="input-box">
+                    <label for="input-text"><h2>입력</h2></label>
+                    <select id="source_lang">
+                        <option value="auto">언어감지</option>
+                        <option value='DE'>독일어</option>
+                        <option value='EN'>영어</option>
+                        <option value='ES'>스페인어</option>
+                        <option value='FI'>핀란드어</option>
+                        <option value='FR'>프랑스어</option>
+                        <option value='HU'>헝가리어</option>
+                        <option value='ID'>인도네시아어</option>
+                        <option value='IT'>이탈리아어</option>
+                        <option value='JA'>일본어</option>
+                        <option value='KO'>한국어</option>
+                        <option value='NB'>노르웨이어</option>
+                        <option value='NL'>네덜란드어</option>
+                        <option value='PL'>폴란드어</option>
+                        <option value='PT'>포르투갈어</option>
+                        <option value='RU'>러시아어</option>
+                        <option value='SL'>슬로베니아어</option>
+                        <option value='SV'>스웨덴어</option>
+                        <option value='TR'>터키어</option>
+                        <option value='UK'>우크라이나어</option>
+                        <option value='ZH'>중국어</option>
+                    </select>
+                    <textarea id="input-text" placeholder="번역할 내용을 입력하세요"></textarea>
+                    <button id="translate-button">번역하기</button>
+                </div>
+                
+                <!-- translators -->
+                <div class="translators">
+
+                    <!-- CORS 문제로 인해 사용 불가-->
+                    <!-- Papago -->
+                    <div class="translator" id="translator-papago">
+                          <h2>Papago</h2>
+                          <select id="language-papago">
+                            <option value='DE'>독일어</option>
+                            <option value='EN'>영어</option>
+                            <option value='ES'>스페인어</option>
+                            <option value='FI'>핀란드어</option>
+                            <option value='FR'>프랑스어</option>
+                            <option value='HU'>헝가리어</option>
+                            <option value='ID'>인도네시아어</option>
+                            <option value='IT'>이탈리아어</option>
+                            <option value='JA'>일본어</option>
+                            <option value='KO'>한국어</option>
+                            <option value='NB'>노르웨이어</option>
+                            <option value='NL'>네덜란드어</option>
+                            <option value='PL'>폴란드어</option>
+                            <option value='PT'>포르투갈어</option>
+                            <option value='RU'>러시아어</option>
+                            <option value='SL'>슬로베니아어</option>
+                            <option value='SV'>스웨덴어</option>
+                            <option value='TR'>터키어</option>
+                            <option value='UK'>우크라이나어</option>
+                            <option value='ZH'>중국어</option>
+                          </select>
+                          <textarea id="output-papago" readonly placeholder="Papago 번역 결과"></textarea>
+                    </div>
+          
+                    <!-- DeepL -->
+                    <div class="translator" id="translator-deepl">
+                          <h2>DeepL</h2>
+                          <select id="language-deepl">
+                            <option value='AR'>아랍어</option>
+                            <option value='BG'>불가리아어</option>
+                            <option value='CS'>체코어</option>
+                            <option value='DA'>덴마크어</option>
+                            <option value='DE'>독일어</option>
+                            <option value='EL'>그리스어</option>
+                            <option value='EN-GB'>영어-영국</option>
+                            <option value='EN-US'>영어-미국</option>
+                            <option value='ES'>스페인어</option>
+                            <option value='ET'>에스토니아어</option>
+                            <option value='FI'>핀란드어</option>
+                            <option value='FR'>프랑스어</option>
+                            <option value='HU'>헝가리어</option>
+                            <option value='ID'>인도네시아어</option>
+                            <option value='IT'>이탈리아어</option>
+                            <option value='JA'>일본어</option>
+                            <option value='KO'>한국어</option>
+                            <option value='LT'>리투아니아어</option>
+                            <option value='LV'>라트비아어</option>
+                            <option value='NB'>노르웨이어</option>
+                            <option value='NL'>네덜란드어</option>
+                            <option value='PL'>폴란드어</option>
+                            <option value='PT-BR'>포르투갈어-브라질</option>
+                            <option value='PT-PT'>포르투갈어-포르투갈</option>
+                            <option value='RO'>루마니아어</option>
+                            <option value='RU'>러시아어</option>
+                            <option value='SK'>슬로바키아어</option>
+                            <option value='SL'>슬로베니아어</option>
+                            <option value='SV'>스웨덴어</option>
+                            <option value='TR'>터키어</option>
+                            <option value='UK'>우크라이나어</option>
+                            <option value='ZH-HANS'>중국어-간체</option>
+                            <option value='ZH-HANT'>중국어-번체</option>
+                          </select>
+                          <textarea id="output-deepl" readonly placeholder="DeepL 번역 결과"></textarea>
+                    </div>
+                  
+                    <!-- Google Translate -->
+                    <div class="translator" id="translator-google">
+                            <h2>Google Translate</h2>
+                            <select id="language-google">
+                                <option value='DE'>독일어</option>
+                                <option value='EN'>영어</option>
+                                <option value='ES'>스페인어</option>
+                                <option value='FI'>핀란드어</option>
+                                <option value='FR'>프랑스어</option>
+                                <option value='HU'>헝가리어</option>
+                                <option value='ID'>인도네시아어</option>
+                                <option value='IT'>이탈리아어</option>
+                                <option value='JA'>일본어</option>
+                                <option value='KO'>한국어</option>
+                                <option value='NB'>노르웨이어</option>
+                                <option value='NL'>네덜란드어</option>
+                                <option value='PL'>폴란드어</option>
+                                <option value='PT'>포르투갈어</option>
+                                <option value='RU'>러시아어</option>
+                                <option value='SL'>슬로베니아어</option>
+                                <option value='SV'>스웨덴어</option>
+                                <option value='TR'>터키어</option>
+                                <option value='UK'>우크라이나어</option>
+                                <option value='ZH'>중국어</option>
+                            </select>
+                        <textarea id="output-google" readonly placeholder="Google 번역 결과"></textarea>
+                    </div>
+
+                    <!-- Microsoft Azure -->
+                    <div class="translator" id="translator-microsoft">
+                        <h2>Microsoft Azure</h2>
+                        <select id="language-microsoft">
+                            <option value='DE'>독일어</option>
+                            <option value='EN'>영어</option>
+                            <option value='ES'>스페인어</option>
+                            <option value='FI'>핀란드어</option>
+                            <option value='FR'>프랑스어</option>
+                            <option value='HU'>헝가리어</option>
+                            <option value='ID'>인도네시아어</option>
+                            <option value='IT'>이탈리아어</option>
+                            <option value='JA'>일본어</option>
+                            <option value='KO'>한국어</option>
+                            <option value='NB'>노르웨이어</option>
+                            <option value='NL'>네덜란드어</option>
+                            <option value='PL'>폴란드어</option>
+                            <option value='PT'>포르투갈어</option>
+                            <option value='RU'>러시아어</option>
+                            <option value='SL'>슬로베니아어</option>
+                            <option value='SV'>스웨덴어</option>
+                            <option value='TR'>터키어</option>
+                            <option value='UK'>우크라이나어</option>
+                            <option value='ZH'>중국어</option>
+                        </select>
+                        <textarea id="output-microsoft" readonly placeholder="Microsoft 번역 결과"></textarea>
+                    </div>
+
+                    <!-- Amazon Translate -->
+                    <!-- API 발급 실패 -->
+                    <!-- <div class="translator" id="translator-amazon">
+                        <h2>Amazon Translate</h2>
+                        <select id="language-amazon">
+                            <option value="ko">한국어</option>
+                            <option value="en">영어</option>
+                            <option value="ja">일본어</option>
+                            <option value="zh">중국어</option>
+                            <option value="fr">프랑스어</option>
+                            <option value="de">독일어</option>
+                            <option value="es">스페인어</option>
+                        </select>
+                        <textarea id="output-amazon" readonly placeholder="Amazon 번역 결과"></textarea>
+                    </div> -->
+
+                    <!-- IBM-Watson 유료화됨-->
+                    <!-- IBM-Watson -->
+                    <!-- <div class="translator" id="IBM-Watson">
+                        <h2>IBM-Watson</h2>
+                        <select id="language-IBM-Watson">
+                            <option value="ko">한국어</option>
+                            <option value="en">영어</option>
+                            <option value="ja">일본어</option>
+                            <option value="zh">중국어</option>
+                            <option value="fr">프랑스어</option>
+                            <option value="de">독일어</option>
+                            <option value="es">스페인어</option>
+                        </select>
+                        <textarea id="output-IBM-Watson" readonly placeholder="IBM-Watson 번역 결과"></textarea>
+                    </div> -->
+
+                </div>
+            </div>
+
+        <script type="module" src="js/translator.js"></script>
+        <script type="text/javascript" src="js/translator.js"></script>
+    </body>
+</html>

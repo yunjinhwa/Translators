@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+  
+header {
+  background-color: #a8a1ff;
+  color: black;
+  text-align: center;
+  padding: 1px;
+  font-size: 12px;
+  top: 0;
+  z-index: 1000;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+  
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 20px;
+}
+  
+.input-box {
+  width: 97%;
+  margin-bottom: 30px;
+  position: relative;
+}
+  
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+  padding-bottom: 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.translator textarea {
+  width: calc(100% - 20px); /* padding 고려한 너비 */
+  height: 300px; /* 더 많은 줄을 표시할 수 있도록 높이 증가 */
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none; /* 세로 방향으로만 크기 조절 가능 */
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box; /* padding이 width에 포함되도록 설정 */
+  overflow-y: auto;
+}
+
+.translator select {
+  width: calc(100% - 20px); /* padding 고려한 너비 */
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+  
+.translators {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.translator {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* 내부 콘텐츠가 넘치지 않도록 설정 */
+  overflow: hidden;
+}
+  
+.translator h2 {
+  margin: 0 0 10px 0;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+  
+textarea[readonly] {
+  background-color: #f9f9f9;
+  color: #333;
+  cursor: default;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  /* 전체 레이아웃 조정 */
+@media (max-width: 768px) {
+  .translators {
+    grid-template-columns: 1fr; /* 작은 화면에서 1열로 변경 */
+  }
+
+  .translator {
+    width: 100%;
+  }
+}
+
+button {
+  height: 35px;
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+}
