@@ -15,6 +15,10 @@ const target_google_Select = document.getElementById('language-google');
 const target_microsoft_Select = document.getElementById('language-microsoft');
 //const target_amazon_Select = document.getElementById('language-amazon');
 //const target_IBM_Watson_Select = document.getElementById('language-IBM-Watson');
+const papago_speaker_button = document.getElementById('papago-speaker-button');
+const deepl_speaker_button = document.getElementById('deepl-speaker-button');
+const google_speaker_button = document.getElementById('google-speaker-button');
+const azure_speaker_button = document.getElementById('azure-speaker-button');
 
 //papago 번역기
 //CORS 정책 떄문에 사용 불가
@@ -197,7 +201,6 @@ async function detectLanguageWithMicrosoftAzure(text) {
         return null;
     }
 }
-
 //번역기
 async function translateWithMicrosoft(text, sourceLang, targetLang) {
     const microsoft_apiKey = '3uwlZXwyqNDSgQMgLkOlnLeYlOeL8Ek83rumRHdnACtOFSHtOUitJQQJ99ALACNns7RXJ3w3AAAbACOGnPrY';
@@ -249,7 +252,8 @@ async function translateWithMicrosoft(text, sourceLang, targetLang) {
 //     const IBM_Watson_apiKey = 'b2554f21-6815-4c7e-9fe0-7e99107f3289:fx';
 // }
 
-translate_Button.addEventListener('click', () => {
+translate_Button.addEventListener('click', (e) => {
+    e.preventDefault();
     const input_lang = input_Text.value;
     const source_lang_selected_Value = source_lang_Select.value;
     
@@ -267,15 +271,7 @@ translate_Button.addEventListener('click', () => {
 
     //microsoft 번역기
     const microsoft_selected_Value = target_microsoft_Select.value;
-    //console.log(detectLanguageWithMicrosoftAzure(input_lang));
     translateWithMicrosoft(input_lang, source_lang_selected_Value, microsoft_selected_Value);
-});
-
-input_Text.addEventListener('keydown', (e) => {
-    if(e.key == 'Enter'){
-        e.preventDefault();
-        translate_Button.click();
-    }
 });
 
 target_papago_Select.addEventListener('change', (e) => {
@@ -321,3 +317,54 @@ target_microsoft_Select.addEventListener('change', (e) => {
     translateWithMicrosoft(input_lang, source_lang_selected_Value, selectedValue);
 });
 
+papago_speaker_button.addEventListener('click', (e) => {
+    if(papago.textContent == ''){
+        return;
+    }
+    if(speechSynthesis.speaking){
+        speechSynthesis.cancel();
+    }
+    const tts = new SpeechSynthesisUtterance();
+    tts.lang = target_papago_Select.value;
+    tts.text = papago.textContent;
+    speechSynthesis.speak(tts);
+});
+
+deepl_speaker_button.addEventListener('click', (e) => {
+    if(deepL.textContent == ''){
+        return;
+    }
+    if(speechSynthesis.speaking){
+        speechSynthesis.cancel();
+    }
+    const tts = new SpeechSynthesisUtterance();
+    tts.lang = target_deepl_Select.value;
+    tts.text = deepL.textContent;
+    speechSynthesis.speak(tts);
+});
+
+google_speaker_button.addEventListener('click', (e) => {
+    if(google_Cloud_Translate.textContent == ''){
+        return;
+    }
+    if(speechSynthesis.speaking){
+        speechSynthesis.cancel();
+    }
+    const tts = new SpeechSynthesisUtterance();
+    tts.lang = target_google_Select.value;
+    tts.text = google_Cloud_Translate.textContent;
+    speechSynthesis.speak(tts);
+});
+
+azure_speaker_button.addEventListener('click', (e) => {
+    if(microsoft_Azure.textContent == ''){
+        return;
+    }
+    if(speechSynthesis.speaking){
+        speechSynthesis.cancel();
+    }
+    const tts = new SpeechSynthesisUtterance();
+    tts.lang = target_microsoft_Select.value;
+    tts.text = microsoft_Azure.textContent;
+    speechSynthesis.speak(tts);
+});
