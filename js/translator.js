@@ -281,7 +281,7 @@ target_papago_Select.addEventListener('change', (e) => {
     if(input_lang == ''){
         return;
     }
-    translateWithDeepL(input_lang, source_lang_selected_Value, selectedValue);
+    translateWithPapago(input_lang, source_lang_selected_Value, selectedValue);
 });
 
 // target_deepl_Select의 값이 변경될 때마다 번역
